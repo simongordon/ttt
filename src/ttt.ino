@@ -91,5 +91,16 @@ void loop()
     selY = selY + 1;
   }
 
+  if (arduboy.justPressed(A_BUTTON))
+  {
+    squares[selX][selY] = player;
+    changeTurn();
+  }
+
+  if (arduboy.justPressed(B_BUTTON))
+  {
+    squares[selX][selY] = EMPTY;
+  }
+
   displayBoard();
 }
