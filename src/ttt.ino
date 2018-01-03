@@ -35,7 +35,8 @@ void displayBoard()
     for (int row = 0; row < SIDE_LENGTH; row++)
     {
       arduboy.setCursor(col * THINGO, row * THINGO);
-      arduboy.print(F("-"));
+      int pos = (SIDE_LENGTH * col) + row;
+      arduboy.print(squares[pos]);
     }
   }
   arduboy.display();
