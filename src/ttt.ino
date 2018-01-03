@@ -1,6 +1,6 @@
-#include <Arduboy.h>
+#include <Arduboy2.h>
 
-Arduboy arduboy;
+Arduboy2 arduboy;
 
 typedef char SquareVal;
 
@@ -72,19 +72,21 @@ void loop()
   if (!(arduboy.nextFrame()))
     return;
 
-  if (arduboy.pressed(LEFT_BUTTON))
+  arduboy.pollButtons();
+
+  if (arduboy.justPressed(LEFT_BUTTON))
   {
     selX = selX - 1;
   }
-  if (arduboy.pressed(RIGHT_BUTTON))
+  if (arduboy.justPressed(RIGHT_BUTTON))
   {
     selX = selX + 1;
   }
-  if (arduboy.pressed(UP_BUTTON))
+  if (arduboy.justPressed(UP_BUTTON))
   {
     selY = selY - 1;
   }
-  if (arduboy.pressed(DOWN_BUTTON))
+  if (arduboy.justPressed(DOWN_BUTTON))
   {
     selY = selY + 1;
   }
