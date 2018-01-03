@@ -32,10 +32,16 @@ void displayBoard()
 
   for (int col = 0; col < SIDE_LENGTH; col++)
   {
+    int x = col * THINGO;
     for (int row = 0; row < SIDE_LENGTH; row++)
     {
-      arduboy.setCursor(col * THINGO, row * THINGO);
+      int y = row * THINGO;
+      arduboy.setCursor(x, y);
       int pos = (SIDE_LENGTH * col) + row;
+      if (pos == selector)
+      {
+        arduboy.drawRect(x, y, THINGO, THINGO, WHITE);
+      }
       arduboy.print(squares[pos]);
     }
   }
