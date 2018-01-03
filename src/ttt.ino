@@ -2,27 +2,48 @@
 
 Arduboy arduboy;
 
-typedef char SQUARE_VAL;
+typedef char SquareVal;
 
-#define NUM_SQUARES 9
-#define EMPTY ' '
+#define SIDE_LENGTH 3
+#define NUM_SQUARES (SIDE_LENGTH * SIDE_LENGTH)
+#define EMPTY '.'
 #define CROSS 'X'
 #define NOUGHT 'O'
 
-int squares[NUM_SQUARES];
+#define THINGO 20
+
+SquareVal squares[NUM_SQUARES];
 
 int selector = 0;
 
 void setup()
 {
   arduboy.begin();
-  arduboy.clear();
+  arduboy.setFrameRate(15);
   for (int i = 0; i < NUM_SQUARES; i++)
   {
     squares[i] = EMPTY;
   }
 }
 
+void displayBoard()
+{
+  arduboy.clear();
+
+  for (int col = 0; col < SIDE_LENGTH; col++)
+  {
+    for (int row = 0; row < SIDE_LENGTH; row++)
+    {
+      arduboy.setCursor(col * THINGO, row * THINGO);
+      arduboy.print(F("-"));
+    }
+  }
+  arduboy.display();
+}
+
 void loop()
 {
+  if (!(arduboy.nextFrame()))
+    return;
+  displayBoard();
 }
