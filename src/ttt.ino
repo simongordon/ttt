@@ -50,12 +50,14 @@ void displayBoard()
     for (int row = 0; row < SIDE_LENGTH; row++)
     {
       int y = row * THINGO;
-      arduboy.setCursor(x, y);
       int pos = (SIDE_LENGTH * col) + row;
       if (col == selX && row == selY)
       {
         arduboy.drawRect(x, y, THINGO, THINGO, WHITE);
       }
+
+      int offset = THINGO * 0.4;
+      arduboy.setCursor(x + offset, y + offset);
       arduboy.print(squares[col][row]);
     }
   }
