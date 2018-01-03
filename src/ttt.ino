@@ -10,7 +10,7 @@ typedef char SquareVal;
 #define CROSS 'X'
 #define NOUGHT 'O'
 
-#define THINGO 20
+const int THINGO = (arduboy.width() / 2) / SIDE_LENGTH;
 
 SquareVal squares[SIDE_LENGTH][SIDE_LENGTH];
 
