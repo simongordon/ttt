@@ -59,6 +59,11 @@ void displayBoard()
       arduboy.print(squares[col][row]);
     }
   }
+
+  arduboy.setCursor((arduboy.width() / 2) + 5, 30);
+  arduboy.print(player);
+  arduboy.print("'s turn");
+
   arduboy.display();
 }
 
