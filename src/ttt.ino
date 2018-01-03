@@ -74,19 +74,19 @@ void loop()
 
   arduboy.pollButtons();
 
-  if (arduboy.justPressed(LEFT_BUTTON))
+  if (arduboy.justPressed(LEFT_BUTTON) && selX > 0)
   {
     selX = selX - 1;
   }
-  if (arduboy.justPressed(RIGHT_BUTTON))
+  if (arduboy.justPressed(RIGHT_BUTTON) && selX < SIDE_LENGTH - 1)
   {
     selX = selX + 1;
   }
-  if (arduboy.justPressed(UP_BUTTON))
+  if (arduboy.justPressed(UP_BUTTON) && selY > 0)
   {
     selY = selY - 1;
   }
-  if (arduboy.justPressed(DOWN_BUTTON))
+  if (arduboy.justPressed(DOWN_BUTTON) && selY < SIDE_LENGTH - 1)
   {
     selY = selY + 1;
   }
